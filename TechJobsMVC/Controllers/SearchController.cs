@@ -26,7 +26,7 @@ namespace TechJobsMVC.Controllers
             //ViewBag.jobs = new List<Job>();
             List<Job> jobs;
 
-            if(searchType.ToLower().Equals("all"))
+            if(searchTerm == ("") || searchTerm == null)
             {
                 jobs = JobData.FindAll();
                 ViewBag.title = "All Jobs";
@@ -36,10 +36,10 @@ namespace TechJobsMVC.Controllers
                 jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
                 ViewBag.title = "Jobs with " + searchType + ": " + searchTerm;
             }
-            //ViewBag.columns = ListController.ColumnChoices;
+            ViewBag.columns = ListController.ColumnChoices;
             ViewBag.jobs = jobs;
             Console.WriteLine(ViewBag.jobs);
-            return RedirectToAction("Index");
+            return View("Index");
 
         } 
 
