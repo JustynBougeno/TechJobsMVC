@@ -36,6 +36,7 @@ namespace TechJobsMVC.Controllers
                 jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
                 ViewBag.title = "Jobs with " + searchType + ": " + searchTerm;
             }
+            //We mmed too pass the colums veiwbag through again.
             ViewBag.columns = ListController.ColumnChoices;
             ViewBag.jobs = jobs;
             Console.WriteLine(ViewBag.jobs);
